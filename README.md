@@ -5,7 +5,7 @@
 
 **12 prompt-design patterns · 7 agent failure modes · the source-level mechanics behind the world's leading agentic coding tool.**
 
-**🌍 English + 简体中文 — both editions included.**
+**🌍 English · 简体中文 · 日本語 — all three editions included.**
 
 [**💖 Sponsor to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
 
@@ -79,6 +79,8 @@ No email required. Read the first two chapters right here:
 - [**Chapter 2 — The Prompt Loading Flow**](book/02-prompt-loading-flow.md)
 
 **🇨🇳 简体中文免费试读：** [引言](book-zh/00-introduction.md) · [第 1 章 · 五层提示词架构](book-zh/01-five-layer-architecture.md) · [第 2 章 · Prompt 加载流程](book-zh/02-prompt-loading-flow.md)
+
+**🇯🇵 日本語 無料サンプル：** [はじめに](book-ja/00-introduction.md) · [第1章 · 5層アーキテクチャ](book-ja/01-five-layer-architecture.md) · [第2章 · プロンプト読み込みフロー](book-ja/02-prompt-loading-flow.md)
 
 If the mechanism-level depth is what you've been looking for, the other eight chapters and the toolkit are one click away.
 
