@@ -5,13 +5,13 @@
 
 **12 prompt-design patterns · 7 agent failure modes · the source-level mechanics behind the world's leading agentic coding tool.**
 
-[**📘 Get the full book + toolkit → $29**](https://gumroad.com/l/inside-claude-code)  ·  [Read 2 free chapters ↓](#-read-free)
+[**💖 Sponsor to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
 
-*Launch price $19 for the first 72 hours — use code `SHIPIT`.*
+*Sponsor the **Inside Claude Code** tier — you get the full 68-page PDF + toolkit, delivered within hours.*
 
 </div>
 
-> 🚧 **Pre-launch.** The two free chapters below are live now. The full book + checkout go live within 48h — ⭐ **star this repo** to get notified.
+> 📘 **The full book ships through GitHub Sponsors.** Read the two free chapters below, then [**sponsor the *Inside Claude Code* tier**](https://github.com/sponsors/aimasteracc) to unlock all 10 chapters + the toolkit. ⭐ Star the repo too.
 
 ---
 
@@ -33,7 +33,7 @@ This book reverse-engineers that machine and hands you the patterns — organize
 
 ## What's inside
 
-**40+ pages · ~14,000 words · 10 chapters · a copy-paste toolkit.**
+**68 pages · ~14,000 words · 10 chapters · a copy-paste toolkit.**
 
 | # | Chapter | You walk away with |
 |---|---------|--------------------|
@@ -80,8 +80,8 @@ If the mechanism-level depth is what you've been looking for, the other eight ch
 
 <div align="center">
 
-### [📘 Get the full book + toolkit → $29](https://gumroad.com/l/inside-claude-code)
-*First 72 hours: $19 with code `SHIPIT`. 30-day money-back guarantee — no questions.*
+### [💖 Sponsor to unlock the full book + toolkit](https://github.com/sponsors/aimasteracc)
+*Sponsor the **Inside Claude Code** tier → you get a private-repo invite with the full PDF + toolkit, usually within hours.*
 
 </div>
 
@@ -97,7 +97,9 @@ These patterns were distilled from **public reverse-engineering of Claude Code's
 
 **What format?** A PDF plus the raw Markdown, and the toolkit files. Yours forever, free updates.
 
-**Refunds?** 30 days, no questions asked.
+**How do I get it after sponsoring?** Sponsor the *Inside Claude Code* tier on [GitHub Sponsors](https://github.com/sponsors/aimasteracc); you'll get an invite to the private repo with the full PDF + toolkit (usually within a few hours). Any tier at or above the book tier works.
+
+**Not happy?** Message me and I'll make it right.
 
 ## License
 
