@@ -3,17 +3,17 @@
 # Inside Claude Code
 ### A Reverse-Engineering Field Guide to Agent Engineering
 
-**12 prompt-design patterns · 7 agent failure modes · the source-level mechanics behind the world's leading agentic coding tool.**
+**12 prompt-design patterns · 7 agent failure modes · the internal mechanics behind the world's leading agentic coding tool, inferred from how it behaves.**
 
 **🌍 English · 简体中文 · 日本語 — all three editions included.**
 
-[**💖 Sponsor to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
+[**💖 Sponsor $25 to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
 
-*Sponsor the **Inside Claude Code** tier — you get the full 68-page PDF + toolkit, delivered within hours.*
+*Sponsor the **$25 Inside Claude Code** tier — you get the full book (EN + 中文 + 日本語 PDF) + toolkit, delivered within hours.*
 
 </div>
 
-> 📘 **The full book ships through GitHub Sponsors.** Read the two free chapters below, then [**sponsor the *Inside Claude Code* tier**](https://github.com/sponsors/aimasteracc) to unlock all 10 chapters + the toolkit. ⭐ Star the repo too.
+> 📘 **The full book ships through GitHub Sponsors.** Read the two free chapters below, then [**sponsor the $25 *Inside Claude Code* tier**](https://github.com/sponsors/aimasteracc) to unlock all 10 chapters + the toolkit. ⭐ Star the repo too.
 
 ---
 
@@ -35,7 +35,7 @@ This book reverse-engineers that machine and hands you the patterns — organize
 
 ## What's inside
 
-**68 pages · ~14,000 words · 10 chapters · a copy-paste toolkit.**
+**60+ pages · ~14,000 words · 10 chapters · a copy-paste toolkit.**
 
 | # | Chapter | You walk away with |
 |---|---------|--------------------|
@@ -86,8 +86,8 @@ If the mechanism-level depth is what you've been looking for, the other eight ch
 
 <div align="center">
 
-### [💖 Sponsor to unlock the full book + toolkit](https://github.com/sponsors/aimasteracc)
-*Sponsor the **Inside Claude Code** tier → you get a private-repo invite with the full PDF + toolkit, usually within hours.*
+### [💖 Sponsor $25 to unlock the full book + toolkit](https://github.com/sponsors/aimasteracc)
+*Sponsor the **$25 Inside Claude Code** tier → you get a private-repo invite with the full PDF (3 languages) + toolkit, usually within hours.*
 
 </div>
 
@@ -103,7 +103,7 @@ These patterns were distilled from **careful observation of how Claude Code beha
 
 **What format?** A PDF plus the raw Markdown, and the toolkit files. Yours forever, free updates.
 
-**How do I get it after sponsoring?** Sponsor the *Inside Claude Code* tier on [GitHub Sponsors](https://github.com/sponsors/aimasteracc); you'll get an invite to the private repo with the full PDF + toolkit (usually within a few hours). Any tier at or above the book tier works.
+**How do I get it after sponsoring?** Sponsor the **$25** *Inside Claude Code* tier on [GitHub Sponsors](https://github.com/sponsors/aimasteracc); you'll get an invite to the private repo with the full PDF + toolkit (usually within a few hours). Any tier at or above the book tier works.
 
 **Not happy?** Message me and I'll make it right.
 
