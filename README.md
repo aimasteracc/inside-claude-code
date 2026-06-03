@@ -7,13 +7,13 @@
 
 **🌍 English · 简体中文 · 日本語 — all three editions included.**
 
-[**💖 Sponsor $25 to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
+[**💖 Sponsor $25 to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc?frequency=one-time)  ·  [Read 2 free chapters ↓](#-read-free)
 
 *Sponsor the **$25 Inside Claude Code** tier — you get the full book (EN + 中文 + 日本語 PDF) + toolkit, delivered within hours.*
 
 </div>
 
-> 📘 **The full book ships through GitHub Sponsors.** Read the two free chapters below, then [**sponsor the $25 *Inside Claude Code* tier**](https://github.com/sponsors/aimasteracc) to unlock all 10 chapters + the toolkit. ⭐ Star the repo too.
+> 📘 **The full book ships through GitHub Sponsors.** Read the two free chapters below, then [**sponsor the $25 *Inside Claude Code* tier**](https://github.com/sponsors/aimasteracc?frequency=one-time) to unlock all 10 chapters + the toolkit. ⭐ Star the repo too.
 
 ---
 
@@ -86,7 +86,7 @@ If the mechanism-level depth is what you've been looking for, the other eight ch
 
 <div align="center">
 
-### [💖 Sponsor $25 to unlock the full book + toolkit](https://github.com/sponsors/aimasteracc)
+### [💖 Sponsor $25 to unlock the full book + toolkit](https://github.com/sponsors/aimasteracc?frequency=one-time)
 *Sponsor the **$25 Inside Claude Code** tier → you get a private-repo invite with the full PDF (3 languages) + toolkit, usually within hours.*
 
 </div>
@@ -103,7 +103,7 @@ These patterns were distilled from **careful observation of how Claude Code beha
 
 **What format?** A PDF plus the raw Markdown, and the toolkit files. Yours forever, free updates.
 
-**How do I get it after sponsoring?** Sponsor the **$25** *Inside Claude Code* tier on [GitHub Sponsors](https://github.com/sponsors/aimasteracc); you'll get an invite to the private repo with the full PDF + toolkit (usually within a few hours). Any tier at or above the book tier works.
+**How do I get it after sponsoring?** Sponsor the **$25** *Inside Claude Code* tier on [GitHub Sponsors](https://github.com/sponsors/aimasteracc?frequency=one-time); you'll get an invite to the private repo with the full PDF + toolkit (usually within a few hours). Any tier at or above the book tier works.
 
 **Not happy?** Message me and I'll make it right.
 
