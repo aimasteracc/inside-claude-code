@@ -5,6 +5,8 @@
 
 **12 prompt-design patterns · 7 agent failure modes · the source-level mechanics behind the world's leading agentic coding tool.**
 
+**🌍 English + 简体中文 — both editions included.**
+
 [**💖 Sponsor to unlock the full book + toolkit**](https://github.com/sponsors/aimasteracc)  ·  [Read 2 free chapters ↓](#-read-free)
 
 *Sponsor the **Inside Claude Code** tier — you get the full 68-page PDF + toolkit, delivered within hours.*
@@ -75,6 +77,8 @@ No email required. Read the first two chapters right here:
 - [**Introduction — Why Take a Coding Agent Apart?**](book/00-introduction.md)
 - [**Chapter 1 — The Five-Layer Prompt Architecture**](book/01-five-layer-architecture.md)
 - [**Chapter 2 — The Prompt Loading Flow**](book/02-prompt-loading-flow.md)
+
+**🇨🇳 简体中文免费试读：** [引言](book-zh/00-introduction.md) · [第 1 章 · 五层提示词架构](book-zh/01-five-layer-architecture.md) · [第 2 章 · Prompt 加载流程](book-zh/02-prompt-loading-flow.md)
 
 If the mechanism-level depth is what you've been looking for, the other eight chapters and the toolkit are one click away.
 
