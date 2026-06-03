@@ -54,6 +54,20 @@ This book reverse-engineers that machine and hands you the patterns — organize
 - 🔄 **`context-handoff.template.md`** — survive a context reset without losing the thread
 - 📄 **Patterns cheat sheet** (1 page) + **Failure-modes checklist** (1 page) — print and pin
 
+## A taste — the 7 ways autonomous agents fail
+
+Every chapter is this concrete. Chapter 6 names all seven failure modes and gives each a *verified* fix. The modes:
+
+1. **One-shot impulse** — does everything at once, exhausts context, leaves fragments
+2. **Premature "done"** — declares victory with most of the work unfinished
+3. **Context anxiety** — rushes to wrap up near the context limit, with capacity to spare
+4. **Self-evaluation inflation** — grades its own broken work 9/10
+5. **Skipping E2E** — unit tests pass; the actual button does nothing
+6. **Stub-ification** — the UI looks complete; the interactions are hollow
+7. **Spec cascade** — a planner's one wrong detail poisons everything downstream
+
+You've probably met at least three. The fixes are in the book.
+
 ## <a name="-read-free"></a>📖 Read free
 
 No email required. Read the first two chapters right here:
