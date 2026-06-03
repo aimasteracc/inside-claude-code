@@ -4,16 +4,16 @@
 
 In late 2025, "AI coding tool" stopped meaning autocomplete and started meaning **an autonomous engineer that runs for hours**: reading your repo, planning, editing dozens of files, running tests, fixing its own mistakes, and shipping. Claude Code is the reference implementation of that idea. Whatever you're building — a coding agent, a research agent, a customer-support agent, an internal automation — Claude Code has already solved, in production, the hard problems you are about to hit.
 
-So this book does something unusual. It takes a working, best-in-class agent apart and shows you the mechanism underneath: how its prompts are structured, how a single user message becomes an API request, how it stays sane across a 200K-token session, why 60% of its instructions describe what *not* to do, how it delegates to sub-agents without corrupting its own context, and the seven specific ways autonomous agents fail in the wild — each with a fix that has been verified in real harnesses.
+So this book does something unusual. It takes a working, best-in-class agent apart and shows you the mechanism underneath: how its prompts are structured, how a single user message becomes an API request, how it stays sane across a 200K-token session, why most of its instructions describe what *not* to do, how it delegates to sub-agents without corrupting its own context, and the seven specific ways autonomous agents fail in the wild — each with a fix that has been verified in real harnesses.
 
 ## What this is
 
 A **field guide**, not a tutorial. Every chapter follows the same shape:
 
-1. **The mechanism** — what the system actually does, with concrete artifacts: file names, version numbers, token counts, trigger conditions. No hand-waving.
+1. **The mechanism** — what the system actually does, described from observed behavior: the kinds of artifacts in play, how they're organized, the conditions that trigger them. No hand-waving.
 2. **Steal this** — how to port that mechanism into *your* agent, your `CLAUDE.md`, your prompt stack.
 
-The patterns here were distilled from public reverse-engineering of Claude Code's 110+ prompt files, source-level traces of its request pipeline, and Anthropic's own published guidance on long-running agent harnesses. They are organized into something you can act on.
+The patterns here were distilled from careful external observation of how the agent behaves, inference about the request pipeline that behavior implies, and Anthropic's own published guidance on long-running agent harnesses. They are organized into something you can act on.
 
 ## Who it's for
 

@@ -2,11 +2,11 @@
 
 Everyone is building AI agents right now. Almost no one has taken apart one that already works.
 
-So I did. I spent weeks pulling Claude Code apart at the prompt and source level — its 110+ prompt files, its request pipeline, its context engine, its failure modes. I came away with a stack of patterns I now use in every agent I build. Here are the five that changed how I work.
+So I did. I spent weeks studying how Claude Code behaves — its prompt layer, its request pipeline, its context engine, its failure modes — and inferring the architecture underneath. I came away with a stack of patterns I now use in every agent I build. Here are the five that changed how I work.
 
 ## 1. The "system prompt" is a filesystem, not a string
 
-The first surprise: Claude Code's system prompt isn't a heroic block of text. It's **110+ independent files**, grouped into six categories — system prompts, system reminders, tool descriptions, sub-agent personas, data, and skills. Each file carries its own `name`, `description`, and a version tag.
+The first surprise: Claude Code's system prompt doesn't behave like a heroic block of text. It behaves like **many small, independent units**, grouped into roughly six categories — system prompts, system reminders, tool descriptions, sub-agent personas, data, and skills. Each unit reads as if it carries its own name, short description, and a version tag.
 
 That structure is the whole game. A monolithic megaprompt can't be versioned, can't be A/B tested, can't be selectively loaded, and rots the moment it outgrows a screen. A *filesystem* of single-responsibility prompt files can do all four. It's the same instinct that splits a codebase into modules — applied to instructions.
 
@@ -14,14 +14,14 @@ If you take one thing from this post: stop writing a prompt. Start architecting 
 
 ## 2. The majority of a great agent's prompt is "no"
 
-Look at the actual constraint files and a pattern jumps out. There are dedicated, individually-versioned files named things like:
+Look at the agent's constraints and a pattern jumps out — there's a dedicated, individually-versioned rule for each prohibition, things like:
 
-- `no-premature-abstractions` — don't build an abstraction for a one-off
-- `no-unnecessary-additions` — don't improve beyond what was asked
-- `no-unnecessary-error-handling` — don't guard against impossible states
-- `read-before-modifying` — read the code before you change it
+- don't build an abstraction for a one-off use
+- don't improve beyond what was asked
+- don't guard against impossible states
+- read the code before you change it
 
-Most of the instruction budget goes to defining what the agent must **not** do. And it makes sense: capability is the easy part — the model already wants to write code. The engineering is in the guardrails. Each `no-` rule reads like a line in an incident log, because that's effectively what it is: a mistake someone watched the agent make, turned into a rule, and tagged with a version.
+Most of the instruction budget goes to defining what the agent must **not** do. And it makes sense: capability is the easy part — the model already wants to write code. The engineering is in the guardrails. Each prohibition reads like a line in an incident log, because that's effectively what it is: a mistake someone watched the agent make, turned into a rule.
 
 The reusable shape: `Don't <X>. <why>. <exception>.`
 

@@ -21,7 +21,7 @@
 
 Everyone is building agents. Almost no one has taken apart one that actually works.
 
-Claude Code is the reference implementation of the autonomous coding agent — it runs for hours, edits dozens of files, tests its own work, and ships. Underneath it is a body of hard-won engineering: **110+ versioned prompt files**, a precise request-assembly pipeline, a context engine that survives 200K-token sessions, and a set of guardrails where **~60% of the instructions describe what the agent must *not* do.**
+Claude Code is the reference implementation of the autonomous coding agent — it runs for hours, edits dozens of files, tests its own work, and ships. Underneath it is a body of hard-won engineering: a prompt layer built as **many small, single-purpose units** rather than one block, a precise request-assembly pipeline, a context engine that survives long sessions, and a set of guardrails where **the majority of the instructions describe what the agent must *not* do.**
 
 This book reverse-engineers that machine and hands you the patterns — organized, translated into plain English, and turned into things you can paste into your own agent today.
 
@@ -40,10 +40,10 @@ This book reverse-engineers that machine and hands you the patterns — organize
 | # | Chapter | You walk away with |
 |---|---------|--------------------|
 | 1 | The Five-Layer Prompt Architecture | Why a great agent's prompt is a *filesystem*, not a string |
-| 2 | The Prompt Loading Flow | How one message becomes an API request — and where the cache boundary saves you 187K tokens/turn |
+| 2 | The Prompt Loading Flow | How one message becomes an API request — and where the cache boundary stops you re-billing the whole static prompt every turn |
 | 3 | Twelve Patterns I — Behavior & Architecture | Constraint-first, single-responsibility, event-driven, cognitive boundaries, delegation, progressive safety |
 | 4 | Twelve Patterns II — Runtime & Knowledge | Compaction, output efficiency, mode switching, the memory trinity, skillification, observability |
-| 5 | Print Mode & Autonomous Loops | Signal handling, the ~187K compaction trigger, designing a headless loop that won't wedge |
+| 5 | Print Mode & Autonomous Loops | Signal handling, the auto-compaction threshold, designing a headless loop that won't wedge |
 | 6 | The Seven Agent Failure Modes | Each failure, its root cause, and the *verified* fix |
 | 7 | Sub-agents & Layered Delegation | The isolation contract — and the messaging asymmetry that silently kills most multi-agent setups |
 | 8 | The Autonomous Development Pipeline | A full prompt-to-verified-build loop with an expert-review panel |
@@ -93,7 +93,7 @@ If the mechanism-level depth is what you've been looking for, the other eight ch
 
 ## Why trust it
 
-These patterns were distilled from **public reverse-engineering of Claude Code's prompt set** (tracked to release `v2.1.97`), source-level traces of its request pipeline, and Anthropic's own published guidance on long-running agent harnesses. Every claim is anchored to a concrete artifact — a file name, a version number, a token count — not vibes. This is analysis of a public system, not leaked proprietary code.
+These patterns were distilled from **careful observation of how Claude Code behaves**, inference about the request pipeline that behavior implies, and Anthropic's own **published** guidance on long-running agent harnesses. It is independent analysis and commentary on observed behavior — it describes patterns in original words and does **not** reproduce any proprietary source code or prompt text.
 
 ## FAQ
 
