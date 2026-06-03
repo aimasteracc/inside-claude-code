@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside Claude Code — A Reverse-Engineering Field Guide to Agent Engineering</title>
+<meta name="description" content="Reverse-engineering Claude Code's prompt architecture: 110+ prompt files, 12 design patterns, 7 agent failure modes with verified fixes. English + 简体中文. Free chapters.">
+<meta property="og:title" content="Inside Claude Code — Reverse-Engineering Field Guide to Agent Engineering">
+<meta property="og:description" content="110+ prompt files. 12 patterns. 7 agent failure modes with fixes. English + 简体中文. Two free chapters.">
+<meta property="og:type" content="website">
+<style>
+  :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9da7b3;--line:#30363d;--acc:#d29922;--acc2:#ec6cb9;--lnk:#58a6ff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+  a{color:var(--lnk);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header{text-align:center;padding:64px 20px 40px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:13px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+  h1{font-size:40px;line-height:1.15;margin:.2em 0}
+  h1 small{display:block;font-size:19px;color:var(--mut);font-weight:500;margin-top:10px}
+  .sub{color:var(--mut);max-width:620px;margin:18px auto 0}
+  .cta{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(135deg,var(--acc2),#a371f7);color:#fff;font-weight:700;padding:14px 26px;border-radius:10px;margin:26px 8px 6px;font-size:17px}
+  .cta.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:600}
+  .fine{color:var(--mut);font-size:14px;margin-top:8px}
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:26px;margin:0 0 18px}
+  .grid{display:grid;gap:14px}
+  @media(min-width:640px){.grid.two{grid-template-columns:1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:17px}
+  .card p{margin:0;color:var(--mut);font-size:15px}
+  ol.fail{counter-reset:f;list-style:none;padding:0;margin:0}
+  ol.fail li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px 12px 50px;margin:10px 0;position:relative}
+  ol.fail li::before{counter-increment:f;content:counter(f);position:absolute;left:14px;top:12px;width:24px;height:24px;background:var(--acc2);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700}
+  ol.fail b{color:var(--ink)}ol.fail span{color:var(--mut)}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td{border-bottom:1px solid var(--line);padding:9px 6px;vertical-align:top}
+  td:first-child{color:var(--acc);font-weight:700;width:34px}
+  .toolkit li{margin:6px 0;color:var(--mut)}.toolkit code{color:var(--ink)}
+  footer{text-align:center;padding:40px 20px;color:var(--mut);font-size:14px}
+  .center{text-align:center}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;padding:14px 16px;color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="badge">🌍 English + 简体中文 · both editions included</span>
+    <h1>Inside Claude Code<small>A Reverse-Engineering Field Guide to Agent Engineering</small></h1>
+    <p class="sub">12 prompt-design patterns · 7 agent failure modes · the source-level mechanics behind the world's leading agentic coding tool. 68 pages, distilled from taking the best coding agent apart.</p>
+    <div>
+      <a class="cta" href="https://github.com/sponsors/aimasteracc">💖 Sponsor to unlock the full book</a>
+      <a class="cta ghost" href="#free">Read 2 chapters free</a>
+    </div>
+    <div class="fine">Sponsor the <b>Inside Claude Code</b> tier → full PDF (EN + 中文) + toolkit, delivered within hours.</div>
+  </div>
+</header>
+
+<section><div class="wrap">
+  <h2>Why this exists</h2>
+  <p>Everyone is building agents. Almost no one has taken apart one that actually works. Claude Code runs for hours, edits dozens of files, tests its own work, and ships. Underneath it: <b>110+ versioned prompt files</b>, a precise request pipeline, a context engine that survives 200K-token sessions, and guardrails where <b>~60% of the instructions describe what the agent must <i>not</i> do.</b> This book reverse-engineers that machine into patterns you can paste into your own agent today.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>A taste — the 7 ways autonomous agents fail</h2>
+  <p class="sub" style="margin:0 0 18px">Chapter 6 names all seven and gives each a <i>verified</i> fix.</p>
+  <ol class="fail">
+    <li><b>One-shot impulse</b> — <span>does everything at once, exhausts context, leaves fragments</span></li>
+    <li><b>Premature "done"</b> — <span>declares victory with most of the work unfinished</span></li>
+    <li><b>Context anxiety</b> — <span>rushes to wrap up near the limit, with capacity to spare</span></li>
+    <li><b>Self-evaluation inflation</b> — <span>grades its own broken work 9/10</span></li>
+    <li><b>Skipping E2E</b> — <span>unit tests pass; the actual button does nothing</span></li>
+    <li><b>Stub-ification</b> — <span>the UI looks complete; the interactions are hollow</span></li>
+    <li><b>Spec cascade</b> — <span>a planner's one wrong detail poisons everything downstream</span></li>
+  </ol>
+  <p class="center" style="margin-top:16px">You've probably met at least three. The fixes are in the book.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What's inside</h2>
+  <p class="sub" style="margin:0 0 14px"><b>68 pages · ~14,000 words · 10 chapters · a copy-paste toolkit.</b></p>
+  <table>
+    <tr><td>1</td><td>The Five-Layer Prompt Architecture — why a great agent's prompt is a <i>filesystem</i>, not a string</td></tr>
+    <tr><td>2</td><td>The Prompt Loading Flow — where the cache boundary saves you 187K tokens/turn</td></tr>
+    <tr><td>3–4</td><td>The Twelve Patterns — constraint-first, cognitive boundaries, delegation, compaction, memory, skillification…</td></tr>
+    <tr><td>5</td><td>Print Mode & Autonomous Loops — signals, the ~187K compaction trigger, headless loops</td></tr>
+    <tr><td>6</td><td>The Seven Agent Failure Modes — each with its root cause and verified fix</td></tr>
+    <tr><td>7</td><td>Sub-agents & Layered Delegation — the messaging asymmetry that silently kills multi-agent setups</td></tr>
+    <tr><td>8</td><td>The Autonomous Development Pipeline — prompt to verified build</td></tr>
+    <tr><td>9</td><td>Designing Your Own Harness — the whole book as five buildable subsystems</td></tr>
+    <tr><td>10</td><td>The Checklist & Templates — pre-flight checklist + paste-ready files</td></tr>
+  </table>
+  <h3 style="margin:22px 0 8px">The toolkit (ships with the book)</h3>
+  <ul class="toolkit">
+    <li><code>CLAUDE.md.template</code> — a constraint-first operating-rules file for any repo</li>
+    <li><code>subagent-prompt.template.md</code> — brief sub-agents so they don't silently fail</li>
+    <li><code>context-handoff.template.md</code> — survive a context reset without losing the thread</li>
+    <li>Patterns cheat sheet + Failure-modes checklist — print and pin</li>
+  </ul>
+</div></section>
+
+<section id="free"><div class="wrap">
+  <h2>📖 Read free — no email gate</h2>
+  <div class="grid two">
+    <div class="card"><h3>English</h3><p>
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book/00-introduction.md">Introduction</a> ·
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book/01-five-layer-architecture.md">Ch.1 — Five-Layer Architecture</a> ·
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book/02-prompt-loading-flow.md">Ch.2 — Prompt Loading Flow</a>
+    </p></div>
+    <div class="card"><h3>简体中文</h3><p>
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book-zh/00-introduction.md">引言</a> ·
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book-zh/01-five-layer-architecture.md">第 1 章 · 五层提示词架构</a> ·
+      <a href="https://github.com/aimasteracc/inside-claude-code/blob/main/book-zh/02-prompt-loading-flow.md">第 2 章 · Prompt 加载流程</a>
+    </p></div>
+  </div>
+  <p class="center" style="margin-top:26px">
+    <a class="cta" href="https://github.com/sponsors/aimasteracc">💖 Sponsor to unlock all 10 chapters + toolkit</a>
+  </p>
+  <p class="note">After you sponsor the <b>Inside Claude Code</b> tier, you get a private-repo invite with the full PDF (English + 中文), the Markdown, and the toolkit — usually within a few hours. 赞助后即可解锁中英双语完整版。</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Why trust it</h2>
+  <p>Distilled from public reverse-engineering of Claude Code's prompt set (tracked to release <code>v2.1.97</code>), source-level traces of its request pipeline, and Anthropic's published guidance on long-running agent harnesses. Every claim is anchored to a concrete artifact — a file name, a version number, a token count. Independent analysis of a public system; not affiliated with Anthropic.</p>
+</div></section>
+
+<footer>
+  <p><a href="https://github.com/aimasteracc/inside-claude-code">⭐ Star on GitHub</a> · <a href="https://github.com/sponsors/aimasteracc">💖 Sponsor</a></p>
+  <p>Study the machine that works, and you stop guessing at the one you're building.</p>
+  <p>© 2026 · All rights reserved.</p>
+</footer>
+</body>
+</html>
