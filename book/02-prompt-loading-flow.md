@@ -1,4 +1,4 @@
-# The Prompt Loading Flow — How One Message Becomes an API Request
+# Chapter 2 — The Prompt Loading Flow: How One Message Becomes an API Request
 
 *Every message you type passes through several assembly stages before it ever reaches the model — and most of what arrives wasn't typed by you.*
 
